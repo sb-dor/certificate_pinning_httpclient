@@ -13,7 +13,7 @@ list(APPEND PLUGIN_SOURCES
 )
 
 add_library(${PLUGIN_NAME} SHARED
-  "include/certificate_pinning_httpclient/certificate_pinning_httpclient_plugin_c_api.h"
+  "include/certificate_pinning_httpclient/certificate_pinning_http_client_plugin_c_api.h"
   "certificate_pinning_httpclient_plugin_c_api.cpp"
   ${PLUGIN_SOURCES}
 )

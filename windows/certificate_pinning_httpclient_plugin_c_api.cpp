@@ -1,4 +1,4 @@
-#include "include/certificate_pinning_httpclient/certificate_pinning_httpclient_plugin_c_api.h"
+#include "include/certificate_pinning_httpclient/certificate_pinning_http_client_plugin_c_api.h"
 
 #include <flutter/plugin_registrar_windows.h>
 

@@ -8,12 +8,12 @@ environment:
   flutter: ">=3.0.0"
 
 dependencies:
-  asn1lib: ^1.5.3
-  crypto: ^3.0.5
   flutter:
     sdk: flutter
+  asn1lib: ^1.6.5
+  crypto: ^3.0.7
   logger: ^2.6.0
-  pem: ^2.0.5
+  pem: ^2.0.6
 
 dev_dependencies:
   lint: ^1.10.0
@@ -33,4 +33,6 @@ flutter:
         package: dev.koller.certificate_pinning_httpclient
         pluginClass: CertificatePinningHttpClientPlugin
       ios:
+        pluginClass: CertificatePinningHttpClientPlugin
+      macos:
         pluginClass: CertificatePinningHttpClientPlugin

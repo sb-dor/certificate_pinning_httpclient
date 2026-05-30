@@ -13,12 +13,10 @@ static const NSTimeInterval FETCH_CERTIFICATES_TIMEOUT = 3;
 @implementation CertificatePinningHttpClientPlugin
 
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
-    NSObject<FlutterTaskQueue>* taskQueue = [[registrar messenger] makeBackgroundTaskQueue];
     FlutterMethodChannel* channel = [[FlutterMethodChannel alloc]
                  initWithName: @"certificate_pinning_httpclient"
               binaryMessenger: [registrar messenger]
-                        codec: [FlutterStandardMethodCodec sharedInstance]
-                    taskQueue: taskQueue];
+                        codec: [FlutterStandardMethodCodec sharedInstance]];
     CertificatePinningHttpClientPlugin* instance = [[CertificatePinningHttpClientPlugin alloc] init];
     [registrar addMethodCallDelegate:instance channel:channel];
 }

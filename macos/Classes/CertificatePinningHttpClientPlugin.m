@@ -29,9 +29,13 @@ static const NSTimeInterval FETCH_CERTIFICATES_TIMEOUT = 3;
                 message:NSURLErrorDomain
                 details:[NSString stringWithFormat:@"Fetch host certificates invalid URL: %@", call.arguments[@"url"]]]);
         } else {
-            HostCertificatesFetcher *hostCertificatesFetcher = [[HostCertificatesFetcher alloc] init];
-            NSArray<FlutterStandardTypedData *> *hostCerts = [hostCertificatesFetcher fetchCertificates:url];
-            result(hostCerts);
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                HostCertificatesFetcher *hostCertificatesFetcher = [[HostCertificatesFetcher alloc] init];
+                NSArray<FlutterStandardTypedData *> *hostCerts = [hostCertificatesFetcher fetchCertificates:url];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    result(hostCerts);
+                });
+            });
         }
     } else {
         result(FlutterMethodNotImplemented);
